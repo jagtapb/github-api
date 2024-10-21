@@ -1,0 +1,15 @@
+name: CLI Demo Workflow
+
+on: workflow_dispatch
+
+jobs:
+    list-issues:
+        name: List Issues
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v4
+            - name: List Issues of Repository
+              run: gh issue list
+              env:
+                GH_TOKEN: ${{ github.token }}
